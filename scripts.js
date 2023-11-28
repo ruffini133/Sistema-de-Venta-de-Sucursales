@@ -1,6 +1,6 @@
 // Hacemos una funcion para extraer el valor o venta de un input
 function extraerNumeroDesdeElemento(elemento) {
-    let miElemento = document.getElementById(elemento).value;
+    let miElemento = elemento.value;
     let miNumero = Number(miElemento);
     
     return miNumero;
@@ -9,13 +9,14 @@ function extraerNumeroDesdeElemento(elemento) {
 // Hacemos una funcion para mostrar total de ventas en las tiendas
 function calcular(){
     let ventas = [];
-    
-    ventas[0] = extraerNumeroDesdeElemento("ventasTienda1");
-    ventas[1] = extraerNumeroDesdeElemento("ventasTienda2");
-    ventas[2] = extraerNumeroDesdeElemento("ventasTienda3");
-    ventas[3] = extraerNumeroDesdeElemento("ventasTienda4");
-    ventas[4] = extraerNumeroDesdeElemento("ventasTienda5");
-    ventas[5] = extraerNumeroDesdeElemento("ventasTienda6");
+    let posicionVentas = 0;
+    let elementosVentas = document.getElementById("divParrafos")
+
+    for(let item of elementosVentas.children) {
+        let valorVenta = extraerNumeroDesdeElemento(item.children[1]);
+        ventas[posicionVentas] = valorVenta;
+        posicionVentas = posicionVentas + 1;
+    }
 
     let totalVentas = sumarTotal(ventas);
     let ventaMayorLlamada = ventaMayor(ventas);
