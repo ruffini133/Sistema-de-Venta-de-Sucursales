@@ -21,12 +21,27 @@ function calcular(){
     let totalVentas = sumarTotal(ventas);
     let ventaMayorLlamada = ventaMayor(ventas);
     let ventaMenorLlamada = ventaMenor(ventas);
+
+    for (let item of elementosVentas.children) {
+        let valorVenta = extraerNumeroDesdeElemento(item.children[1]);
+
+        item.children[1].className = "menuNeutro";
+
+        if (valorVenta == ventaMayorLlamada){
+            item.children[1].className = "menuInputMayor";
+        }
+
+        if (valorVenta == ventaMenorLlamada) {
+            item.children[1].className = "menuInputMenor";
+        }
+    }
     
 
     let mensajeVentas = `Total Ventas: ${totalVentas} <br> Venta Mayor: ${ventaMayorLlamada} <br> Venta Menor: ${ventaMenorLlamada}`;
     let parrafoMostrarVentas = document.getElementById("parrafoMostrarVentas");
 
-    parrafoMostrarVentas.innerHTML = `${mensajeVentas}`;
+    parrafoMostrarVentas.innerHTML = `<div>${mensajeVentas}</div>`;
+    parrafoMostrarVentas.firstChild.classList.add("textoCentrado");
 }
 
 function sumarTotal(array) {

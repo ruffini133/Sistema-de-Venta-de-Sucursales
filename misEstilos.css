@@ -1,0 +1,32 @@
+body{
+    background-image: url(images/pizzeria.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.menuInputMayor{
+    background-color: aqua;
+}
+.menuInputMenor{
+    background-color: lightsalmon;
+}
+#ventaMayorLlamada{
+    color: red;
+}
+.divClase{
+    display: grid;
+    place-items: center;
+}
+#titulo{
+    display: grid;
+    place-items: center;
+}
+#botonCalcular{
+    text-align: center;
+}
+.textoCentrado{
+    text-align: center;
+}
