@@ -58,3 +58,40 @@ function ventaMenor(array) {
     }
     return menor;
 }
+
+function crearParrafostienda(textoLabel, valorMin){
+    // Creamos la etiqueta <p>
+    let etiquetaP = document.createElement("p");
+
+    // Creamos la etiqueta <label>
+    let etiquetaLabel = document.createElement("label");
+    
+    // Los conectamos
+    etiquetaLabel.setAttribute("for", textoLabel);
+    etiquetaLabel.innerText = `${textoLabel}: `
+
+    // Crear input
+    let elementoInput = document.createElement("input");
+
+    // Establecemos los atributos del input
+    elementoInput.setAttribute("id", textoLabel);
+    elementoInput.setAttribute("min", valorMin);
+    elementoInput.setAttribute("value", 0);
+
+    // Agregamos input y label dentro de parrafo p
+    etiquetaP.appendChild(etiquetaLabel);
+    etiquetaP.appendChild(elementoInput);
+
+    return etiquetaP;
+}
+
+function crearTiendas(IdContenedor, min, cantidadTiendas) {
+    let elementoContenedor = document.getElementById(IdContenedor);
+
+    for(let conteoTiendas = 1; conteoTiendas <= cantidadTiendas; conteoTiendas++) {
+        
+        let texto = `Tienda ${conteoTiendas}`;
+        let parrafoTienda = crearParrafostienda(texto, min);
+        elementoContenedor.appendChild(parrafoTienda);
+    }
+}
